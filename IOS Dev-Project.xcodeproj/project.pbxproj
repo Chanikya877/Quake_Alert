@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		144151422D7BCBA000ACE311 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 144151412D7BCBA000ACE311 /* FirebaseDatabase */; };
+		144151442D7BCBA000ACE311 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 144151432D7BCBA000ACE311 /* FirebaseFirestore */; };
+		144151462D7BCDC200ACE311 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 144151452D7BCDC200ACE311 /* GoogleService-Info.plist */; };
 		2D4FDFBE2D77ADE300D53996 /* IOS_Dev_ProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4FDFBD2D77ADE300D53996 /* IOS_Dev_ProjectApp.swift */; };
 		2D4FDFC02D77ADE400D53996 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4FDFBF2D77ADE400D53996 /* ContentView.swift */; };
 		2D4FDFC22D77ADE600D53996 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D4FDFC12D77ADE600D53996 /* Assets.xcassets */; };
@@ -14,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		144151452D7BCDC200ACE311 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2D4FDFBA2D77ADE300D53996 /* IOS Dev-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IOS Dev-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D4FDFBD2D77ADE300D53996 /* IOS_Dev_ProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_Dev_ProjectApp.swift; sourceTree = "<group>"; };
 		2D4FDFBF2D77ADE400D53996 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,6 +30,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				144151422D7BCBA000ACE311 /* FirebaseDatabase in Frameworks */,
+				144151442D7BCBA000ACE311 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +57,7 @@
 		2D4FDFBC2D77ADE300D53996 /* IOS Dev-Project */ = {
 			isa = PBXGroup;
 			children = (
+				144151452D7BCDC200ACE311 /* GoogleService-Info.plist */,
 				2D4FDFBD2D77ADE300D53996 /* IOS_Dev_ProjectApp.swift */,
 				2D4FDFBF2D77ADE400D53996 /* ContentView.swift */,
 				2D4FDFC12D77ADE600D53996 /* Assets.xcassets */,
@@ -111,6 +118,9 @@
 				Base,
 			);
 			mainGroup = 2D4FDFB12D77ADE300D53996;
+			packageReferences = (
+				144151402D7BCBA000ACE311 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 2D4FDFBB2D77ADE300D53996 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +137,7 @@
 			files = (
 				2D4FDFC52D77ADE600D53996 /* Preview Assets.xcassets in Resources */,
 				2D4FDFC22D77ADE600D53996 /* Assets.xcassets in Resources */,
+				144151462D7BCDC200ACE311 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +355,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		144151402D7BCBA000ACE311 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		144151412D7BCBA000ACE311 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 144151402D7BCBA000ACE311 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		144151432D7BCBA000ACE311 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 144151402D7BCBA000ACE311 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2D4FDFB22D77ADE300D53996 /* Project object */;
 }
