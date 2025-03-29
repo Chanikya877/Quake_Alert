@@ -1,34 +1,75 @@
 import SwiftUI
 import MapKit
 
+
+
 struct SeismicApp: App {
+    @AppStorage("isAuthenticated") private var isAuthenticated = false
+
     var body: some Scene {
         WindowGroup {
-            MainView()
+            if isAuthenticated {
+                MainView()
+                    .onAppear { // ✅ Correct placement
+                        print("MainView appeared")
+                    }
+            } else {
+                LoginView(isAuthenticated: $isAuthenticated)
+                    .onAppear { // ✅ Correct placement
+                        print("LoginView appeared")
+                    }
+            }
         }
     }
 }
+
+
+
+struct ContentView: View {
+    @AppStorage("isAuthenticated") var isAuthenticated: Bool = false
+    @State private var hasSeenFlashcard: Bool = false
+
+    var body: some View {
+        Group {
+            if !hasSeenFlashcard {
+                FlashcardView(hasSeenFlashcard: $hasSeenFlashcard)
+            } else if !isAuthenticated {
+                LoginView(isAuthenticated: $isAuthenticated)
+            } else {
+                MainView()
+            }
+        }
+        .onAppear {
+            print("ContentView onAppear: hasSeenFlashcard = \(hasSeenFlashcard), isAuthenticated = \(isAuthenticated)")
+        }
+    }
+}
+
 
 
 struct MainView: View {
     var body: some View {
-
-        if UIDevice.current.userInterfaceIdiom == .pad || UIDevice.current.userInterfaceIdiom == .mac {
-    
-            NavigationSplitView {
-                SidebarView()
-            } detail: {
-                DashboardView()
+        Group {
+            if UIDevice.current.userInterfaceIdiom == .pad || UIDevice.current.userInterfaceIdiom == .mac {
+                NavigationSplitView {
+                    SidebarView()
+                } detail: {
+                    DashboardView()
+                }
+            } else {
+                NavigationStack {
+                    SidebarView()
+                }
             }
-        } else {
-           
-            NavigationView {
-                SidebarView()
-                DashboardView()
-            }
+        }
+        .onAppear {
+            print("MainView appeared") // ✅ Debugging log
         }
     }
 }
+
+
+
 struct SidebarView: View {
     var body: some View {
         List {
